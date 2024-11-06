@@ -22,8 +22,6 @@ with open('./2023/test.txt', 'r') as file:
             matches += 1
       i += 1
     multiplier = -1
-    if cardnum == 17:
-      print("a")
     if cardnum in copies:
       multiplier = copies[cardnum]
     else:
