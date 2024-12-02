@@ -1,5 +1,3 @@
-# record if > distance
-# distance = button * (time - button)
 time = 0
 distance = 0
 ways = 1
