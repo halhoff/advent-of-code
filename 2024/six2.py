@@ -1,23 +1,11 @@
-a = []
-osx = -1
-osy = -1
-with open("./2024/input6.txt", 'r') as f:
-  for l in f:
-    a.append(l)
-for i in range(len(a)):
-  if '^' in a[i]:
-    osx = a[i].index('^')
-    osy = i
+a = [l.strip() for l in open("./2024/input6.txt")]
+osx, osy = next((i, j) for j, l in enumerate(a) for i, c in enumerate(l) if c == '^')
 o = 0
 for i in range(len(a)):
   for j in range(len(a[0])):
     if j < len(a[i]) and a[i][j] == '.':
-      sx = osx
-      sy = osy
-      d = 'U'
-      p = 0
-      n = a[i][:j] + '#' + a[i][j + 1:]
-      m = a[:i] + [n] + a[i + 1:]
+      sx, sy, d, p = osx, osy, 'U', 0
+      m = a[:i] + [a[i][:j] + '#' + a[i][j + 1:]] + a[i + 1:]
       while 0 <= sx < len(m[0]) and 0 <= sy < len(m):
         if d == 'U':
           if m[sy - 1][sx] == '#':
